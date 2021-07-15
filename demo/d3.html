@@ -23,7 +23,7 @@
 		</style>
 	</head>
 	<body>
-        <div class="navbar"> 
+        <div class="navbar">
             <a class="logo" href="../index.html"><img src="../assets/logo.svg" alt="logo"></a>
             <div class="hamburger">
                     <div class="line1"></div>
@@ -38,7 +38,7 @@
                     <li><a href="#" class="cta">Signup</a></li>
                 </ul>
             </nav>
-            
+
         </div>
         <section class="header_section">
             <header class="demo">
@@ -73,7 +73,7 @@
             function setupCanvasDrawing() {
 
                 // get canvas and context
-
+								document.getElementById("resetButton").onclick = Reset;
                 const drawingCanvas = document.getElementById( 'drawing-canvas' );
                 const drawingContext = drawingCanvas.getContext( '2d' );
 
@@ -116,8 +116,33 @@
 
                 } );
 
+				document.getElementById("postImageButton").onclick = function(e) {
+				document.getElementById("imageDataField").value = canvas.toDataURL();
+				return true;
+			}
+
             }
 
+						function Reset() {
+						context.clearRect(0,0,800,200);
+					}
+					function saveImage(){
+					    	try{
+					    		var canvas = document.getElementById("canvas");
+					    		var data = canvas.toDataURL("image/png");
+					    		$.ajax({
+					    			url: "saveAsImage.php",
+					    			data:{data:data},
+					    			type:"POST",
+					    			success:function(r){
+					    				$("#result").html(r);
+					    			}
+
+					    		});
+					    	}catch(e){
+					    		alert(e.message);
+					    	}
+					    }
             function draw( drawContext, x, y ) {
 
                 drawContext.moveTo( drawStartPos.x, drawStartPos.y );
@@ -162,7 +187,7 @@
 				// const geometry = new THREE.PlaneGeometry( 0.1, 0.1, 0.2, 32 ).translate( 0, 0.1, 0 );
 				const geometry = new THREE.PlaneGeometry(0.75,0.5);
 				// var loader=new THREE.TextureLoader();
-    			// var Texture = loader.load("../assets/temp2.jpg"); 
+    			// var Texture = loader.load("../assets/temp2.jpg");
 				// const geometry = new THREE.PlaneGeometry( width = 0.75,height=0.5);
 
 				function onSelect() {
@@ -170,7 +195,7 @@
 					if ( reticle.visible ) {
 
 						// const material = new THREE.MeshPhongMaterial( { color: 0xffffff * Math.random() } );
-						// var material = new THREE.MeshBasicMaterial({map:Texture}); 
+						// var material = new THREE.MeshBasicMaterial({map:Texture});
 						const mesh = new THREE.Mesh( geometry, material );
 						mesh.position.setFromMatrixPosition( reticle.matrix );
 						// mesh.scale.y = Math.random() * 2 + 1;
