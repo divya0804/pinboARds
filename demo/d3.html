@@ -47,9 +47,12 @@
             </header>
         </section>
 
-        <canvas id="drawing-canvas" height="128" width="128"></canvas>
+        <canvas id="drawing-canvas" height="400" width="400"></canvas>
+				<input type="button" onClick="saveImage();" value="Save as Image">
+				<button class="btn" id="resetButton">Reset</button>
+  		<div id="result"></div>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script type="module">
 
             import * as THREE from '.././js/three/build/three.module.js';
@@ -130,6 +133,28 @@
                 material.map.needsUpdate = true;
 
             }
+
+						function Reset() {
+		context.clearRect(0,0,400,400);
+	}
+
+						function saveImage(){
+						    	try{
+						    		var canvas = document.getElementById("canvas");
+						    		var data = canvas.toDataURL("image/png");
+						    		$.ajax({
+						    			url: "saveAsImage.php",
+						    			data:{data:data},
+						    			type:"POST",
+						    			success:function(r){
+						    				$("#result").html(r);
+						    			}
+
+						    		});
+						    	}catch(e){
+						    		alert(e.message);
+						    	}
+						    }
 
 			function init() {
 
