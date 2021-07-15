@@ -47,7 +47,7 @@
             </header>
         </section>
 
-        <canvas id="drawing-canvas" height="128" width="128"></canvas>
+        <canvas id="drawing-canvas" style="border: 1px solid; margin: 0 auto;" height="200" width="800"></canvas>
 
 
 		<script type="module">
@@ -73,7 +73,7 @@
             function setupCanvasDrawing() {
 
                 // get canvas and context
-								document.getElementById("resetButton").onclick = Reset;
+						//		document.getElementById("resetButton").onclick = Reset;
                 const drawingCanvas = document.getElementById( 'drawing-canvas' );
                 const drawingContext = drawingCanvas.getContext( '2d' );
 
@@ -118,10 +118,11 @@
 
 				document.getElementById("postImageButton").onclick = function(e) {
 				document.getElementById("imageDataField").value = canvas.toDataURL();
-				return true;
+			//	return true;
 			}
 
             }
+
 
 						function Reset() {
 						context.clearRect(0,0,800,200);
