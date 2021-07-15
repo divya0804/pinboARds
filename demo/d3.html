@@ -24,7 +24,7 @@
 	</head>
 	<body>
         <div class="navbar">
-            <a class="logo" href="../index.html"><img src="../assets/logo.svg" alt="logo"></a>
+            <a class="logo" href="../index.php"><img src="../assets/siteImages/logo.svg" alt="logo"></a>
             <div class="hamburger">
                     <div class="line1"></div>
                     <div class="line2"></div>
@@ -32,8 +32,8 @@
             </div>
             <nav class="nav">
                 <ul class="nav-links">
-                    <li><a href="../about.html">About</a></li>
-                    <li><a href="../demo.html">Demo</a></li>
+                   h <li><a href="../about.php">About</a></li>
+                    <li><a href="../demo.php">Demo</a></li>
                     <li><a href="#">Login</a></li>
                     <li><a href="#" class="cta">Signup</a></li>
                 </ul>
@@ -47,7 +47,7 @@
             </header>
         </section>
 
-        <canvas id="drawing-canvas" style="border: 1px solid; margin: 0 auto;" height="200" width="800"></canvas>
+        <canvas id="drawing-canvas" height="128" width="128"></canvas>
 
 
 		<script type="module">
@@ -73,7 +73,7 @@
             function setupCanvasDrawing() {
 
                 // get canvas and context
-						//		document.getElementById("resetButton").onclick = Reset;
+
                 const drawingCanvas = document.getElementById( 'drawing-canvas' );
                 const drawingContext = drawingCanvas.getContext( '2d' );
 
@@ -116,34 +116,8 @@
 
                 } );
 
-				document.getElementById("postImageButton").onclick = function(e) {
-				document.getElementById("imageDataField").value = canvas.toDataURL();
-			//	return true;
-			}
-
             }
 
-
-						function Reset() {
-						context.clearRect(0,0,800,200);
-					}
-					function saveImage(){
-					    	try{
-					    		var canvas = document.getElementById("canvas");
-					    		var data = canvas.toDataURL("image/png");
-					    		$.ajax({
-					    			url: "saveAsImage.php",
-					    			data:{data:data},
-					    			type:"POST",
-					    			success:function(r){
-					    				$("#result").html(r);
-					    			}
-
-					    		});
-					    	}catch(e){
-					    		alert(e.message);
-					    	}
-					    }
             function draw( drawContext, x, y ) {
 
                 drawContext.moveTo( drawStartPos.x, drawStartPos.y );
@@ -188,7 +162,7 @@
 				// const geometry = new THREE.PlaneGeometry( 0.1, 0.1, 0.2, 32 ).translate( 0, 0.1, 0 );
 				const geometry = new THREE.PlaneGeometry(0.75,0.5);
 				// var loader=new THREE.TextureLoader();
-    			// var Texture = loader.load("../assets/temp2.jpg");
+    			// var Texture = loader.load("../assets/siteImages/temp2.jpg");
 				// const geometry = new THREE.PlaneGeometry( width = 0.75,height=0.5);
 
 				function onSelect() {
