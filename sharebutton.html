@@ -1,60 +1,22 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <title>WhatsApp Button Example</title>
+    </head>
+    <body>
+        <h1>WhatsApp Button Example</h1>
+        <a href="https://wa.me/6287880334339"><img src="wabutton.png" width="250px;"></a>
 
-<head>
-	<meta http-equiv="content-type"
-		content="text/html;charset=utf-8" />
+        <h1>WhatsApp Button With Message Example</h1>
+        <textarea id="message" placeholder="Enter your message"></textarea><br>
+        <img src="wabutton.png" width="250px;" onclick="sendWa()">
 
-	<meta name="viewport" content=
-		"width=device-width, initial-scale=1.0">
 
-	<title>
-		How to add whatsapp share
-		button on website?
-	</title>
-
-	<style type="text/css">
-
-		/* To show on small size screen only */
-		@media screen and (min-width: 500px) {
-			.mobileShow {
-				display: none
-			}
-		}
-	</style>
-</head>
-
-<body>
-	<h3>Whatsapp sharing</h3>
-
-	<input class="mobileShow"
-		type="text" name="message">
-	<button onclick="share()" class="mobileShow">
-		Share to whatsapp
-	</button>
-
-	<script src=
-"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js">
-	</script>
-
-	<script type="text/javascript">
-
-		// Function to share on whatsapp
-		function share() {
-
-			// Getting user input
-			var message = $("input[name=message]").val();
-
-			// Opening URL
-			window.open(
-				"whatsapp://send?text=" + message,
-
-				// This is what makes it
-				// open in a new window.
-				'_blank'
-			);
-		}
-	</script>
-</body>
-
+        <script>
+            function sendWa(){
+                var message = document.getElementById("message").value
+                location.href = "https://wa.me/6287880334339?text=" + message
+            }
+        </script>
+    </body>
 </html>
