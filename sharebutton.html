@@ -1,36 +1,60 @@
+<!DOCTYPE html>
 <html>
-<head>
-<title> Add a WhatsApp sharing link on a website </title>
 
-<style>
-    /* To hide the button on large screens */
-    @media screen and (min-width: 1000px) {
-	.mobileShow {
-	   display: none
-	}
-    }
-</style>
+<head>
+	<meta http-equiv="content-type"
+		content="text/html;charset=utf-8" />
+
+	<meta name="viewport" content=
+		"width=device-width, initial-scale=1.0">
+
+	<title>
+		How to add whatsapp share
+		button on website?
+	</title>
+
+	<style type="text/css">
+
+		/* To show on small size screen only */
+		@media screen and (min-width: 500px) {
+			.mobileShow {
+				display: none
+			}
+		}
+	</style>
 </head>
 
 <body>
-    <h3>Whatsapp sharing</h3>
+	<h3>Whatsapp sharing</h3>
 
-    <input class="mobileShow" type="text" name="message">
-    <button onclick="share()" class="mobileShow"> Share to WhatsApp </button>
+	<input class="mobileShow"
+		type="text" name="message">
+	<button onclick="share()" class="mobileShow">
+		Share to whatsapp
+	</button>
 
-    <script src=
+	<script src=
 "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js">
-    </script>
+	</script>
 
-    <script>
-	// User-defined function to share some message on WhatsApp
-	function share() {
-	    // collet the user input
-	   var message = $("input[name=message]").val();
-                // JavaScript function to open URL in new window
-	    window.open( "whatsapp://send?text=" + message, '_blank');
-	}
-    </script>
+	<script type="text/javascript">
 
+		// Function to share on whatsapp
+		function share() {
+
+			// Getting user input
+			var message = $("input[name=message]").val();
+
+			// Opening URL
+			window.open(
+				"whatsapp://send?text=" + message,
+
+				// This is what makes it
+				// open in a new window.
+				'_blank'
+			);
+		}
+	</script>
 </body>
+
 </html>
