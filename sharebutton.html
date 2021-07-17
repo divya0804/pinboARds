@@ -9,13 +9,11 @@
 
         <h1>WhatsApp Button With Message Example</h1>
         <textarea id="message" placeholder="Enter your message"></textarea><br>
-        <img src="wabutton.png" width="250px;" onclick="sendWa()">
-
 
         <script>
             function sendWa(){
                 var message = document.getElementById("message").value
-                location.href = "https://wa.me/6287880334339?text=" + message
+                location.href = "https://api.whatsapp.com/" + message
             }
         </script>
     </body>
